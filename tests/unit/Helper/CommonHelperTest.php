@@ -4,6 +4,7 @@ use App\Helpers\Common;
 
 final class CommonHelperTest extends \PHPUnit\Framework\TestCase 
 {
+    
     public function test_is_get_weather_description_valid_for_empty_array()
     {
         $result = Common::getWeaterDescription();
