@@ -12,14 +12,14 @@ class WeatherAppTest extends \PHPUnit\Framework\TestCase
     {
         $getdata = new GetData ($this->city);
         $result = $getdata->processWeather([]);
-        $this->assertEquals("No data found!", $result);
+        $this->assertEquals(MSG_404, $result);
     }
 
     public function test_empty_city_data_for_getCityWeather()
     {
         $getdata = new GetData ();
         $result = $getdata->getCityWeather();
-        $this->assertEquals("Woops! something went wrong.", $result);
+        $this->assertEquals(MSG_404, $result);
     }
 
     /**
