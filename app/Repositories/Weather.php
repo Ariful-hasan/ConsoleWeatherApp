@@ -9,9 +9,9 @@ class Weather
      * Call OpenWeatherApi 
      * 
      * @param string $city
-     * @return mixed array | boolean
+     * @return mixed json | boolean
      */
-    static public function getWeatherData(string $city="")
+    static public function getWeatherDetails(string $city="")
     {
         if (empty($city))
             return false;

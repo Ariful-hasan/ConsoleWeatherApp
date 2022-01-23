@@ -1,33 +1,33 @@
 <?php
 namespace App\Controllers;
 
-use App\Services\GetData;
+use App\Services\WeatherService;
+use App\Helpers\Common;
 
 class WeatherController 
 {
 
     public function __construct (public string $str = "", public string $city = "")
-    {       
+    {     
+        $this->str = Common::getUserInput()  ;
         $this->getCityFromString();
     }
 
-
     /**
-     * This is index working like invoke
+     * This is used for showing the weather details
      *
-     * @return string
+     * @return void
      */
-    public function printWeather(): string
+    public function showCurrentWeather(): void
     {
         try {
-             $response = new GetData($this->city);
-             return $response->index();
+             $weather_service = new WeatherService($this->city);
+             echo $weather_service->index();
         } catch (\Exception $e) {
-            //return $e->getMessage();
-            return MSG_ERROR;
+            //log the Exception $e->getMessage();
+            echo MSG_ERROR;
         }
     }
-
 
     /**
      * Separate city from string

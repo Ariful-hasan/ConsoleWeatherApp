@@ -2,12 +2,12 @@
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ERROR);
+error_reporting(E_ALL);
 
 require './app/bootstrap.php';
 
 use App\Controllers\WeatherController;
 
-$user_input = readline("weather ");
-$mainObj = new WeatherController($user_input);
-echo $mainObj->printWeather();
+
+$mainObj = new WeatherController();
+$mainObj->showCurrentWeather();
