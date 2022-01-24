@@ -44,4 +44,25 @@ class Common
     {
         return readline("weather ");
     }
+
+    /**
+     * Substring from the OpenMap Api
+     *
+     * @param string $str
+     * @return string
+     */
+    public static function getMessageFromWeatherResponse(string $str = ""): string
+    {
+        if (empty($str))
+            return "";
+
+        preg_match('/"message":(.*)/',$str, $matches);
+
+        if (isset($matches[0])) {
+            $str = json_decode("{".$matches[0], true);
+            return ucwords($str['message']) ?? "";
+        }
+
+        return "";
+    }
 }

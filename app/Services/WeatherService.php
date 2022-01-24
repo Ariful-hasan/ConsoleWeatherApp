@@ -8,7 +8,7 @@ use App\Helpers\Common;
 class WeatherService 
 {
 
-    public function __construct (public string $city = "") 
+    public function __construct(public string $city = "") 
     {
        
     }
@@ -32,7 +32,7 @@ class WeatherService
      *
      * @return string
      */
-    public function getCityWeather (): string
+    public function getCityWeather(): string
     {
         try {
             $weather_data = Weather::getWeatherDetails($this->city);
@@ -46,7 +46,7 @@ class WeatherService
                 . Common::getWeatherTemperature($weather_data);
         } catch (\Exception $e) {
             //log the Exception $e->getMessage();
-            return MSG_500;
+            return Common::getMessageFromWeatherResponse($e->getMessage()) ?? MSG_404;
         }
     }
 }

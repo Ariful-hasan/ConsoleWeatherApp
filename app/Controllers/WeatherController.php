@@ -7,9 +7,9 @@ use App\Helpers\Common;
 class WeatherController 
 {
 
-    public function __construct (public string $str = "", public string $city = "")
+    public function __construct(public string $str = "", public string $city = "")
     {     
-        $this->str = Common::getUserInput()  ;
+        $this->str = Common::getUserInput();
         $this->getCityFromString();
     }
 

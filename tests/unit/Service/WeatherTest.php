@@ -11,6 +11,6 @@ final class WeatherAppTest extends \PHPUnit\Framework\TestCase
     {
         $weather_service = new WeatherService ();
         $result = $weather_service->getCityWeather();
-        $this->assertEquals(MSG_404, $result);
+        $this->assertStringContainsString("No", $result);
     }
 }
