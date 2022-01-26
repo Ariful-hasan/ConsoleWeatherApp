@@ -12,11 +12,13 @@ php index.php
 
 ### Application structure:
   1.  Application root access file is index.php
+  
+  2.  Application controllers location is app\Controllers
 
-  2.  Application services location is app\Services
+  3.  Application services location is app\Services
 
-  3.  Application repositories location is app\Repositories
+  4.  Application repositories location is app\Repositories
 
-  4.  Application helper functions are written in app\Helpers\Common.php
+  5.  Application helper functions are written in app\Helpers\Common.php
 
-  5.  Application common constants are written in app\config\constants.php
+  6.  Application common constants are written in app\config\constants.php
