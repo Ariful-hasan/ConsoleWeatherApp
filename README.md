@@ -1,4 +1,4 @@
-# Console-Weather 
+# Console-Weather-App 
 ### Composer CLI:
 ```bash
 composer update
