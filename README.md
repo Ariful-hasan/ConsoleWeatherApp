@@ -1,3 +1,7 @@
+Composer CLI:
+  composer update
+  composer dump-autoload
+
 Application structure:
   1.  Application root access file is index.php
 
