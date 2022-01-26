@@ -1,8 +1,16 @@
-Composer CLI:
-  composer update
-  composer dump-autoload
+# Console-Weather 
+### Composer CLI:
+```bash
+composer update
+composer dump-autoload
+```
 
-Application structure:
+### System run command:
+```bash
+php index.php
+```
+
+### Application structure:
   1.  Application root access file is index.php
 
   2.  Application services location is app\Services
