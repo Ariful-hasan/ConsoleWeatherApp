@@ -3,14 +3,14 @@
 namespace App\Services;
 
 use App\Repositories\Weather;
-use App\Helpers\Common;
+use App\Facades\CommonHelper;
 
 class WeatherService 
 {
 
-    public function __construct(public string $city = "") 
+    public function __construct(public string $city = "", private $weather = null) 
     {
-       
+       $this->weather = new Weather();
     }
 
     /**
@@ -35,18 +35,17 @@ class WeatherService
     public function getCityWeather(): string
     {
         try {
-            $weather_data = Weather::getWeatherDetails($this->city);
-            $weather_data = json_decode($weather_data, true);
+            $weather_data =$this->weather->getWeatherDetailsByCityName($this->city);
+            $weather_data = !empty($weather_data) ? json_decode($weather_data, true) : "";
 
             if (empty($weather_data))
                 return MSG_404;
 
-            return Common::getWeaterDescription($weather_data)
+            return CommonHelper::getWeaterDescription($weather_data)
                 . ", "
-                . Common::getWeatherTemperature($weather_data);
+                . CommonHelper::getWeatherTemperature($weather_data);
         } catch (\Exception $e) {
-            //log the Exception $e->getMessage();
-            return Common::getMessageFromWeatherResponse($e->getMessage()) ?? MSG_404;
+            return CommonHelper::getMessageFromWeatherResponse($e->getMessage()) ?? MSG_404;
         }
     }
 }

@@ -14,7 +14,7 @@ class Weather
      * @param string $city
      * @return mixed json | boolean
      */
-    // public static function getWeatherDetails(string $city="")
+    // public static function getWeatherDetailsByCityName(string $city="")
     // {
     //     if (empty($city))
     //         return false;
@@ -27,9 +27,9 @@ class Weather
      * Call OpenWeatherApi using GuzzleHttp
      *
      * @param string $city
-     * @return mixed json | boolean
+     * @return mixed object | boolean
      */
-    public static function getWeatherDetails(string $city="")
+    public function getWeatherDetailsByCityName(string $city="")
     {
          $url = API_URL."q={$city}&appid=".API_KEY;
 

@@ -2,14 +2,14 @@
 namespace App\Controllers;
 
 use App\Services\WeatherService;
-use App\Helpers\Common;
+use App\Facades\CommonHelper;
 
 class WeatherController 
 {
 
     public function __construct(public string $str = "", public string $city = "")
     {     
-        $this->str = Common::getUserInput();
+        $this->str = CommonHelper::getUserInput();
         $this->getCityFromString();
     }
 
@@ -24,7 +24,6 @@ class WeatherController
              $weather_service = new WeatherService($this->city);
              echo $weather_service->index();
         } catch (\Exception $e) {
-            //log the Exception $e->getMessage();
             echo MSG_ERROR;
         }
     }

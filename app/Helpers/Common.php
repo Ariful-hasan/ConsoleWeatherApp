@@ -11,7 +11,7 @@ class Common
      * @param array $data
      * @return string
      */
-    public static function getWeaterDescription(array $data = []): string
+    public function getWeaterDescription(array $data = []): string
     {
         return isset($data['weather'][0]['description']) ? 
                 $data['weather'][0]['description'] : "";
@@ -23,7 +23,7 @@ class Common
      * @param array $data
      * @return string
      */
-    public static function getWeatherTemperature(array $data = []): string
+    public function getWeatherTemperature(array $data = []): string
     {
         if (isset($data['main']['temp'])) {
             $degree = round($data['main']['temp'] - KELVIN, 1);
@@ -40,7 +40,7 @@ class Common
      * 
      * @return string
      */
-    public static function getUserInput(): string
+    public function getUserInput(): string
     {
         return readline("weather ");
     }
@@ -51,7 +51,7 @@ class Common
      * @param string $str
      * @return string
      */
-    public static function getMessageFromWeatherResponse(string $str = ""): string
+    public function getMessageFromWeatherResponse(string $str = ""): string
     {
         if (empty($str))
             return "";
