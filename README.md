@@ -15,6 +15,8 @@ php index.php
 
   2.  Application services location is app\Services
 
-  3.  Application helper functions are written in app\Helpers\Common.php
+  3.  Application repositories location is app\Repositories
 
-  4.  Application common constants are written in app\config\constants.php
+  4.  Application helper functions are written in app\Helpers\Common.php
+
+  5.  Application common constants are written in app\config\constants.php
