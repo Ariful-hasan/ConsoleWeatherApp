@@ -19,6 +19,8 @@ php index.php
 
   4.  Application repositories location is app\Repositories
 
-  5.  Application helper functions are written in app\Helpers\Common.php
+  5.  Application validators location is app\Validators
 
-  6.  Application common constants are written in app\config\constants.php
+  6.  Application helper functions are written in app\Helpers\Common.php
+
+  7.  Application common constants are written in app\config\constants.php
