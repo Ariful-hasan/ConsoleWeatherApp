@@ -7,3 +7,7 @@ define("MSG_400", "Invalid City Name.");
 define("MSG_404", "No Data Found.");
 define("MSG_500", "Internal Server Error.");
 define("MSG_ERROR", "Woops! Something went wrong.");
+define("SUCCESS", 200);
+define("MSG", "msg");
+define("STATUS", "status");
+define("DATA", "data");

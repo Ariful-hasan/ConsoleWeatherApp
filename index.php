@@ -6,6 +6,8 @@ error_reporting(E_ERROR);
 require './app/bootstrap.php';
 
 use App\Controllers\WeatherController;
+use App\Validators\CityValidator;
 
-$mainObj = new WeatherController();
+
+$mainObj = new WeatherController(new CityValidator());
 $mainObj->showCurrentWeather();

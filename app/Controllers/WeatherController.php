@@ -3,14 +3,22 @@ namespace App\Controllers;
 
 use App\Services\WeatherService;
 use App\Facades\CommonHelper;
+use App\Validators\Validator;
 
 class WeatherController 
 {
+    public string $city;
 
-    public function __construct(public string $str = "", public string $city = "")
+    public function __construct(Validator $validator)
     {     
-        $this->str = CommonHelper::getUserInput();
-        $this->getCityFromString();
+        $validate = $validator->validate(CommonHelper::getUserInput());
+        
+        if ($validate[STATUS] !== true) {
+            echo $validate[MSG];
+            exit;
+        }
+        
+        $this->city = $validate[DATA];
     }
 
     /**
@@ -21,22 +29,11 @@ class WeatherController
     public function showCurrentWeather(): void
     {
         try {
-             $weather_service = new WeatherService($this->city);
-             echo $weather_service->index();
+            $weather_service = new WeatherService($this->city);
+            echo $weather_service->getCityWeather();
         } catch (\Exception $e) {
             echo MSG_ERROR;
         }
-    }
-
-    /**
-     * Separate city from string
-     *
-     * @return void
-     */
-    public function getCityFromString(): void
-    {
-        $str = explode(" ", trim($this->str));
-        $this->city = is_array($str) ? (count($str) > 1 ? $str[1] : $str[0]) : "";
     }
 
 }
